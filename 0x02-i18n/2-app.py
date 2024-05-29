@@ -5,7 +5,7 @@ This flask app is configured to support english and french language using \
 """
 
 from flask import Flask, render_template, request
-from flask_babel import babel
+from flask_babel import Babel
 
 
 class Config:
@@ -14,10 +14,10 @@ class Config:
     BABEL_DEFAULT_TIMEZONE = "UTC"
 
 
-app = Flask(__name)
-app.config_from_object(Config)
+app = Flask(__name__)
+app.config.from_object(Config)
 
-babel = bable(app)
+babel = Babel(app)
 
 
 @babel.localeselector
